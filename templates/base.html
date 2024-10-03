@@ -5,6 +5,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'contact' as contact_url %}
 
 
 <!DOCTYPE html>
@@ -66,7 +67,13 @@
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item"></li>
+                        <a class="nav-link {% if request.path == contact_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    
                 </ul>
+                    
                 <span class="navbar-text text-muted">
                     adventures of a software developer
                 </span>
