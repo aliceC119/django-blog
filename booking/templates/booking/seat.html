@@ -4,16 +4,19 @@
 {% block content %}
 <html>
 <head>
-    <title>Booking</title>
+    <title>Book a Seat</title>
 </head>
 <body>
-    <h1>Book for the First Saturday</h1>
-    <p>Slots available: {{ slots }}</p>
+    <h1>Book a Seat</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Book</button>
     </form>
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
 </body>
 </html>
 {% endblock content %}
+

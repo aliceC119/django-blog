@@ -6,7 +6,7 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'contact' as contact_url %}
-{% url 'booking' as booking_url %}
+
 
 
 <!DOCTYPE html>
@@ -74,8 +74,12 @@
                     </li>
                     <li class="nav-item"></li>
                         <a class="nav-link {% if request.path == booking_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'booking' %}">Come meet with us!</a>
+                            href="{% url 'booking' %}">Come meet with Us!</a>
                     </li>
+                    
+                    
+                
+                
                     
                 </ul>
                     

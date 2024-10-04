@@ -1,6 +1,11 @@
 from django.contrib import admin
-from .models import Booking
-
-
+from .models import Booking, Booking
+from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
-admin.site.register(Booking)
+
+
+@admin.register(Booking)
+class AboutAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('content',)
+    list_display = ('date',)
