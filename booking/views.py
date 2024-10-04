@@ -22,7 +22,7 @@ def booking_view(request):
     else:
         form = BookingForm(instance=booking)
     
-    return render(request, 'booking/booking.html', {'form': form, 'slots': booking.slots})
+    return render(request, 'booking/booking_form.html', {'form': form, 'slots': booking.slots})
 
 def booking_success(request):
-    return render(request, 'booking/success.html')
+    return render(request, 'booking/booking_success.html')
