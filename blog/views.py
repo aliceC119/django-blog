@@ -33,7 +33,8 @@ def post_detail(request, slug):
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
 
-    msg = False
+    liked = False
+    
 
     if request.method == "POST":
 
@@ -42,12 +43,13 @@ def post_detail(request, slug):
 
             if post.likes.filter(id=user.id).exists():
                 post.likes.remove(user)
-                msg=False
+                liked=False
             
             else: 
                 post.likes.add(user)
-                msg=True
-
+                liked=True
+            
+            
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -70,7 +72,8 @@ def post_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
-            'msg':msg
+            'liked':liked,
+            
         },
     )
 
