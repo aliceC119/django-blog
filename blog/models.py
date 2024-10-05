@@ -18,7 +18,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     likes= models.ManyToManyField(User, related_name='post')
-    dislikes= models.ManyToManyField(User, related_name='post_dislikes')
+   
     
 
     
