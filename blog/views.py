@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
+
 
 # Create your views here.
 
@@ -31,7 +32,23 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+
+    msg = False
+
     if request.method == "POST":
+
+        if request.user.is_authenticated:
+            user = request.user
+
+            if post.likes.filter(id=user.id).exists():
+                post.likes.remove(user)
+                msg=False
+            
+            else: 
+                post.likes.add(user)
+                msg=True
+
+
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -52,7 +69,8 @@ def post_detail(request, slug):
             "post": post,
             "comments": comments,
             "comment_count": comment_count,
-            "comment_form": comment_form
+            "comment_form": comment_form,
+            'msg':msg
         },
     )
 
@@ -97,3 +115,4 @@ def comment_delete(request, slug, comment_id):
                              'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
