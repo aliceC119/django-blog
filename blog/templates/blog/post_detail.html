@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% load crispy_forms_tags %}
+{% load social_share %}
 
 {% block content %}
 <div class="masthead">
@@ -37,7 +38,44 @@
             </div>
         </div>
     </div>
+   
+    <!-- Displaying social share -->
+    <style>
 
+        
+        .social-share button{
+        background: none;
+        border: none;
+        width: 90px;
+        height: 50px;
+    }
+        
+       
+    
+        
+    </style>
+    <div class="social-share">
+        <h3>Share Me!</h3>
+        
+
+        <i class="fab fa-facebook-square ms-3" style="color: #3511eb"></i>
+        {% post_to_facebook post.get_absolute_url "Facebook" %}
+        {% post_to_linkedin post.get_absolute_url "LinkedIn" %}
+        <i class="bi bi-telegram-square ms-3" style="color: #3511eb"></i>
+        {% post_to_telegram "{{ post.title }}" post.get_absolute_url "Telegram" %}
+        {% post_to_reddit "{{ post.title }}" post.get_absolute_url "Reddit" %}
+        {% post_to_twitter request.build_absolute_uri post.title %}
+      </div>
+       
+
+       
+        
+       
+  
+    
+
+
+    <!-- Displaying count of likes -->
     <style>
 
         .like-container{
@@ -64,7 +102,7 @@
     
     </style>
     
-    <!-- Displaying count of likes -->
+    
     <div class="like-container">
         <form action="" method='POST'>
             {% csrf_token %}

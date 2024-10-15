@@ -119,3 +119,5 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+def home(request):
+   return render(request,"home.html")
