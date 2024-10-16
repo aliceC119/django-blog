@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'contact',
     'booking',
     'django_social_share'
+    
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

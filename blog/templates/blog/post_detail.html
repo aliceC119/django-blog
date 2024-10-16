@@ -40,7 +40,7 @@
     </div>
    
     <!-- Displaying social share -->
-    <style>
+    <!--<style>
 
         
         .social-share button{
@@ -53,19 +53,21 @@
        
     
         
-    </style>
-    <div class="social-share">
+    </style>-->
+    <div class="SocialPost">
         <h3>Share Me!</h3>
         
-
-        <i class="fab fa-facebook-square ms-3" style="color: #3511eb"></i>
         {% post_to_facebook post.get_absolute_url "Facebook" %}
+        {% post_to_twitter request.build_absolute_uri post.title %}
         {% post_to_linkedin post.get_absolute_url "LinkedIn" %}
-        <i class="bi bi-telegram-square ms-3" style="color: #3511eb"></i>
+        {% post_to_whatsapp post.get_absolute_url "Whatsapp" %}
         {% post_to_telegram "{{ post.title }}" post.get_absolute_url "Telegram" %}
         {% post_to_reddit "{{ post.title }}" post.get_absolute_url "Reddit" %}
         {% post_to_twitter request.build_absolute_uri post.title %}
       </div>
+
+      
+
        
 
        
