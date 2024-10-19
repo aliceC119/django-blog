@@ -110,7 +110,7 @@ body {
     margin-left: 5%;
     color: lightgray;
 }
-
+  
 .btn-signup,
 .btn-edit {
     background-color: #188181;
@@ -159,3 +159,9 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.div like-container button {
+    background: none;
+    border: none;
+}
+    
