@@ -63,9 +63,9 @@
         {% post_to_whatsapp post.get_absolute_url "Whatsapp" %}
         {% post_to_telegram "{{ post.title }}" post.get_absolute_url "Telegram" %}
         {% post_to_reddit "{{ post.title }}" post.get_absolute_url "Reddit" %}
-        {% post_to_twitter request.build_absolute_uri post.title %}
+        
       </div>
-
+      
       
 
        
@@ -80,14 +80,13 @@
     <!-- Displaying count of likes -->
     <style>
 
+
+
     .like-container button{
         background: none;
         border: none;
     }
-    i{
-      font-size: 22px;
-      cursor: pointer;
-    }
+    
     
     </style>
     

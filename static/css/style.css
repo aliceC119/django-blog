@@ -164,4 +164,8 @@ body {
     background: none;
     border: none;
 }
-    
+i{
+    font-size: 22px;
+    cursor: pointer;
+  }
+
