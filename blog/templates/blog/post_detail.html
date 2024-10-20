@@ -54,19 +54,43 @@
     
         
     </style>-->
-    <div class="SocialPost">
-        <h3>Share Me!</h3>
+    <div class="social-share-buttons">
+        <h4>Share with Us!</h4>
         
+    
+    
         {% post_to_facebook post.get_absolute_url "Facebook" %}
         {% post_to_twitter request.build_absolute_uri post.title %}
-        {% post_to_linkedin post.get_absolute_url "LinkedIn" %}
         {% post_to_whatsapp post.get_absolute_url "Whatsapp" %}
         {% post_to_telegram "{{ post.title }}" post.get_absolute_url "Telegram" %}
         {% post_to_reddit "{{ post.title }}" post.get_absolute_url "Reddit" %}
+        {% post_to_linkedin post.get_absolute_url "LinkedIn" %}
+     
+        
+        
         
       </div>
       
-      
+<style>
+.social-share-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.social-share-buttons a {
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.social-share-buttons a:hover {
+    background-color: #f31d88;
+}
+
+</style>
+    
 
        
 

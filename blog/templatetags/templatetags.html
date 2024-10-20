@@ -1,0 +1,12 @@
+{% load social_share %}
+
+<div>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <p>Share this post: </p>
+    <ul class="social-share-buttons">
+        <li><a href="{% post_to_facebook post.title post.get_absolute_url %}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="{% post_to_twitter post.title post.get_absolute_url %}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="{% post_to_linkedin post.title post.get_absolute_url %}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+</div>
