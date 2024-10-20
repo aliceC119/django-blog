@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Posts</h1>
+        <form method="get">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        {% if query %}
+            <h2>Search results for "{{ query }}":</h2>
+            <ul>
+                {% for post in results %}
+                    <li>{{ post.title }}</li>
+                {% empty %}
+                    <li>No posts found.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>All Posts:</h2>
+            <ul>
+                {% for post in results %}
+                    <li>{{ post.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

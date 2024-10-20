@@ -6,10 +6,13 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 
+
+
 # Create your views here.
 
 
 class PostList(generic.ListView):
+    
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
@@ -28,6 +31,7 @@ def post_detail(request, slug):
 
     :template:`blog/post_detail.html`
     """
+    
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
@@ -121,3 +125,4 @@ def comment_delete(request, slug, comment_id):
 
 def home(request):
    return render(request,"home.html")
+
