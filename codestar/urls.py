@@ -26,6 +26,8 @@ urlpatterns = [
     path("", include("blog.urls"), name="blog-urls"),
     path("contact/", include("contact.urls"), name="contact-urls"),
     path("booking/", include("booking.urls"), name="booking-urls"),
+    path("newpost/", include("newpost.urls"), name="create_post-urls"),
+    
     
   
 ]

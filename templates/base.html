@@ -77,6 +77,10 @@
                         <a class="nav-link {% if request.path == booking_url %}active{% endif %}" aria-current="page"
                             href="{% url 'booking' %}">Come meet with Us!</a>
                     </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link {% if request.path == newpost_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'create_post' %}">Create a post</a>
+                    </li>
                     
                     
                 </ul>
